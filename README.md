@@ -6,9 +6,13 @@ Laravel 5 Active Directory LDAP Authentication driver.
 Fork
 ====
 
+This is a fork of strebl's l5-ldap-auth.
+
 This is a fork of Cody Covey's ldap-auth package. Unfortunately he doesn't develeped the package recently and didn't update the package to Laravel 4.1+ or even Laravel 5. Therefore I decided to fork the package to provide a minimal Laravel 5 support.
 
 The first release, 2.0, isn't well tested. Just be careful!
+
+This is used for my self currently. Any problem please make a new issue or pull request, I will test it as soon as possible. 
 
 Contribution
 ------------
@@ -24,7 +28,7 @@ This will follow releases similar to how Laravel itself manages releases. When L
 
 ```json
 require {
-	"strebl/l5-ldap-auth": "~2.0",
+	"freefcw/ldap-auth": "~2.0",
 }
 ```
 
@@ -54,7 +58,7 @@ To install this package add the following to your composer.json
 
 ```json
 require {
-	"strebl/l5-ldap-auth": "~1.0",
+	"freefcw/ldap-auth": "~1.0",
 }
 ```
 
@@ -124,3 +128,8 @@ Model Usage
 ===========
 
 You can still use a model with this implementation as well if you want. ldap-auth will take your fields from ldap and attach them to the model allowing you to access things such as roles / permissions from the model if the account is valid in Active Directory. It is also important to note that no authentication takes place off of the model. All authentication is done from Active Directory and if they are removed from AD but still in a users table they WILL NOT be able to log in.
+
+Notice
+===========
+
+The traits will override the parent class method!
