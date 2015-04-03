@@ -79,7 +79,8 @@ class LdapAuthUserProvider implements UserProvider
                 }
             }
 
-            return new LdapUser((array) $ldapUserInfo);
+            $model = $this->createModel();
+            return $model->fill((array)$ldapUserInfo);
         }
     }
 
@@ -142,7 +143,8 @@ class LdapAuthUserProvider implements UserProvider
                 }
             }
 
-            return new LdapUser((array) $ldapUserInfo);
+            $model = $this->createModel();
+            return $model->fill((array)$ldapUserInfo);
         }
     }
 
