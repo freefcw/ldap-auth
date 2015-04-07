@@ -37,6 +37,17 @@ class LdapAuthUserProvider implements UserProvider
     }
 
     /**
+     * find User By identifier
+     *
+     * @param $identifier
+     * @return mixed
+     */
+    public function findByIdentifier($identifier)
+    {
+        return $this->createModel()->newQuery()->where($this->getUsernameField(), '=', $identifier)->first();
+    }
+
+    /**
      * Retrieve a user by their unique idenetifier.
      *
      * @param  mixed  $identifier
@@ -48,7 +59,7 @@ class LdapAuthUserProvider implements UserProvider
         $userNameField = $this->getUsernameField();
 
         if ($this->model) {
-            $model = $this->createModel()->newQuery()->find($identifier);
+            $model = $this->findByIdentifier($identifier);
         }
 
         if (isset($model)) {
